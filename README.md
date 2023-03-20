@@ -1,16 +1,15 @@
 # intent-classification-shallow-ml
 Training an ML classifier to distinguish between intents
 
-To train a multi-class classifier in Python that can distinguish between the intents atis_flight, atis_flight_time, and atis_aircraft, we can use the following steps:
+# Feature Extraction Pipeline
+* Text Preprocessing: The input text data is preprocessed to remove non-alphabetic characters, convert the text to lowercase, tokenize the text into words, stem each word using PorterStemmer, remove stop words, and join the remaining words into a string.
 
-* Load the dataset: The dataset can be loaded using the pandas library in Python.
+* Label Encoding: The target variable "intent" is encoded into numerical labels using the LabelEncoder() function from scikit-learn library.
 
-* Preprocess the data: We need to preprocess the data by converting the text to lowercase, removing punctuation and stop words, and stemming the words.
+* Vectorization: The preprocessed text data is tokenized into sequences using the TfidfVectorizer() function from scikit-learn library. This function converts the text data into a matrix of word frequencies or term frequency-inverse document frequency (TF-IDF) scores, where each row represents a text instance and each column represents a unique word in the vocabulary. The TF-IDF scores measure the importance of a word in a text instance relative to its frequency in the entire dataset.
 
-* Split the data into training and testing sets: We can use the train_test_split() function from scikit-learn to split the data into training and testing sets.
+* Classifier Training: The SVM and Logistic Regression classifiers are trained on the vectorized text data using the fit() method from scikit-learn library.
 
-* Extract features: We can extract features from the preprocessed data using the bag-of-words approach. We can use the CountVectorizer from scikit-learn to convert the text data into a matrix of word counts.
+* Prediction: The trained classifiers are used to make predictions on the vectorized test data using the predict() method from scikit-learn library.
 
-* Train the classifier: We can use a classifier such as Naive Bayes, Logistic Regression, or Support Vector Machine to train the model.
-
-* Evaluate the model: We can evaluate the performance of the model using metrics such as accuracy, precision, recall, and F1-score.
+* Evaluation: The accuracy and confusion matrix of the classifiers are computed using the score() and confusion_matrix() methods from scikit-learn library.
