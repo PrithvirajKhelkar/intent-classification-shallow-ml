@@ -26,7 +26,7 @@ rules:
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  - action: utter_student_card_ordered
+  - action: action_order_student_card
 
 - rule: Activate Report Covid form
   steps:
@@ -42,7 +42,7 @@ rules:
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  - action: utter_covid_test_status
+  - action: action_report_covid
 
 - rule: Activate Request Student ID form
   steps:
@@ -58,4 +58,4 @@ rules:
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  - action: utter_student_id
+  - action: action_get_student_id

@@ -94,11 +94,22 @@ responses:
   utter_student_card_ordered:
   - text: "A new student card order has been placed for {student_id} id."
 
+  utter_student_id_not_found:
+  - text: "The student id {student_id} does not exist in the records."
+
   utter_covid_test_status:
   - text: "Covid test {covid_test_type} {covid_test_status} recorded for {student_id} id."
 
   utter_student_id:
-  - text: "The ID of {first_name} {last_name} is 1."
+  - text: "The ID of {first_name} {last_name} is {student_id}."
+
+  utter_student_not_found:
+  - text: "{first_name} {last_name} is not in the records."
+
+actions: 
+  - action_order_student_card
+  - action_report_covid
+  - action_get_student_id
 
 session_config:
   session_expiration_time: 60
