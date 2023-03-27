@@ -11,3 +11,51 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+- rule: Activate Student Card form
+  steps:
+  - intent: request_student_card
+  - action: student_card
+  - active_loop: student_card
+
+- rule: Submit Student Card form
+  condition:
+  - active_loop: student_card
+  steps:
+  - action: student_card
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_student_card_ordered
+
+- rule: Activate Report Covid form
+  steps:
+  - intent: report_covid_status
+  - action: report_covid
+  - active_loop: report_covid
+
+- rule: Submit Report Covid form
+  condition:
+  - active_loop: report_covid
+  steps:
+  - action: report_covid
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_covid_test_status
+
+- rule: Activate Request Student ID form
+  steps:
+  - intent: request_student_id
+  - action: get_student_id
+  - active_loop: get_student_id
+
+- rule: Submit Request Student ID form
+  condition:
+  - active_loop: get_student_id
+  steps:
+  - action: get_student_id
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_student_id

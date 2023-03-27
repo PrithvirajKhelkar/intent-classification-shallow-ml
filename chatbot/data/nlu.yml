@@ -89,3 +89,53 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+
+
+- intent: request_student_card
+  examples: |
+    - I want to order a student card. My student ID is [12345](student_id)
+    - Can you help me order a student card? My student ID is [12345](student_id)
+    - How do I get a student card? My student ID is [12345](student_id)
+    - I need a student card, My student ID is [12345](student_id)
+    - How can I order a student card?. My student ID is [12345](student_id)
+    - Please order a student card for me. This is my student ID number: [97531](student_id)
+    - I want to get a new student ID card. This is my student ID number: [97531](student_id)
+    - How long does it take to get a student card?. This is my student ID number: [97531](student_id)
+    - I want to order a student card. I can give you my student ID: [24680](student_id)
+    - Can you help me order a student card? I can give you my student ID: [24680](student_id)
+    - How do I get a student card? I can give you my student ID: [24680](student_id)
+    - I need a student card, I can give you my student ID: [24680](student_id)
+    - How can I order a student card?. I can give you my student ID: [24680](student_id)
+    - Please order a student card for me. Here's my student ID: [67890](student_id)
+    - I want to get a new student ID card. Here's my student ID: [67890](student_id)
+    - How long does it take to get a student card?. Here's my student ID: [67890](student_id)
+
+- intent: report_covid_status
+  examples: |
+    - I need to report my COVID status
+    - I tested [positive](covid_test_status) for COVID using a [PCR](covid_test_type) test
+    - My COVID test came back [positive](covid_test_status) using a [PCR](covid_test_type) test
+    - I am COVID [positive](covid_test_status) and was tested using a using a [PCR](covid_test_type) test test
+    - My COVID status is [positive](covid_test_status) and I was tested using a [PCR](covid_test_type) test
+    - I want to report that I have COVID [positive](covid_test_status). tested on [PCR](covid_test_type).
+    - Can you update my COVID status to [positive](covid_test_status)?
+    - I tested [positive](covid_test_status) for COVID-19, how do I proceed?
+    - I tested [negative](covid_test_status) for COVID using a [antigen](covid_test_type) test
+    - My COVID test came back [negative](covid_test_status) using a [antigen](covid_test_type) test
+    - I am COVID [negative](covid_test_status) and was tested using a using a [antigen](covid_test_type) test test
+    - My COVID status is [negative](covid_test_status) and I was tested using a [antigen](covid_test_type) test
+    - I want to report that I have COVID [negative](covid_test_status). tested on [antigen](covid_test_type).
+    - Can you update my COVID status to [negative](covid_test_status)?
+    - I tested [negative](covid_test_status) for COVID-19, how do I proceed?
+
+- intent: request_student_id
+  examples: |
+    - What is my student ID?
+    - Can you help me find my student ID? My name is [Peter](first_name) [Parker](last_name).
+    - I need to know my student ID.  My name is [Peter](first_name) [Parker](last_name).
+    - What is the student ID for [John](first_name) [Smith](last_name)?
+    - Can you find the student ID for [Jane](first_name) [Doe](last_name)?
+    - What is the student ID for [David](first_name) [Lee](last_name)?
+    - I lost my student ID, can you help me retrieve it?   My name is [Peter](first_name) [Parker](last_name).
+    - My student ID is not working, can you check if it's valid?   I am [Peter](first_name) [Parker](last_name).
+    - How do I find my student ID in the student portal?

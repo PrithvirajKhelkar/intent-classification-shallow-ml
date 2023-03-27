@@ -1,5 +1,64 @@
 version: "3.1"
 
+forms:
+  student_card:
+    required_slots:
+      - student_id
+
+  report_covid:
+    required_slots:
+      - student_id
+      - covid_test_type
+      - covid_test_status
+  
+  get_student_id:
+    required_slots:
+      - first_name
+      - last_name
+
+slots:
+  student_id:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: student_id
+
+  covid_test_type:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: covid_test_type
+
+  covid_test_status:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: covid_test_status
+  
+  first_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: first_name
+
+  last_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: last_name
+
+entities:
+  - student_id
+  - covid_test_type
+  - covid_test_status
+  - first_name
+  - last_name
+
 intents:
   - greet
   - goodbye
@@ -8,6 +67,9 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - request_student_card
+  - report_covid_status
+  - request_student_id
 
 responses:
   utter_greet:
@@ -28,6 +90,15 @@ responses:
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
+
+  utter_student_card_ordered:
+  - text: "A new student card order has been placed for {student_id} id."
+
+  utter_covid_test_status:
+  - text: "Covid test {covid_test_type} {covid_test_status} recorded for {student_id} id."
+
+  utter_student_id:
+  - text: "The ID of {first_name} {last_name} is 1."
 
 session_config:
   session_expiration_time: 60
