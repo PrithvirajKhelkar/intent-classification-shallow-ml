@@ -1,0 +1,95 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey there
+    - good day
+    - hiya
+    - hola
+    - yo
+
+- intent: goodbye
+  examples: |
+    - farewell
+    - see you soon
+    - take care
+    - have a good one
+    - bye for now
+
+- intent: affirm
+  examples: |
+    - absolutely
+    - that's correct
+    - yes, please
+    - I agree
+    - sure thing
+
+- intent: deny
+  examples: |
+    - nope
+    - nah
+    - never ever
+    - not at all
+    - not my thing
+
+- intent: mood_great
+  examples: |
+    - feeling awesome
+    - on top of the world
+    - fantastic
+    - couldn't be better
+    - amazing day
+
+- intent: mood_unhappy
+  examples: |
+    - feeling down
+    - not in a good place
+    - disappointing day
+    - not feeling well
+    - terrible
+
+- intent: bot_challenge
+  examples: |
+    - are you real?
+    - prove you're not a bot
+    - are you human or machine?
+    - can I trust you?
+    - what's the meaning of life?
+
+- intent: order_food
+  examples: |
+    - I want to order a pizza with pepperoni
+    - Can I have a salad with ranch dressing and croutons?
+    - How do I order a burger and fries?
+    - I need to get a sandwich, what do you recommend?
+    - What's on the menu for dinner tonight?
+    - Can I place an order for delivery?
+    - I'm interested in ordering takeout.
+    - What kind of drinks do you have?
+    - Is there a special deal for the day?
+
+- intent: book_hotel
+  examples: |
+    - I want to book a room for next weekend
+    - Can I reserve a suite for three nights?
+    - How do I make a hotel reservation?
+    - I need a room for tonight, is there any availability?
+    - What are the rates for a single room?
+    - Can I get a discount if I book in advance?
+    - Do you have any promotions for this month?
+    - I want to book a hotel room for a family of four.
+    - Are there any amenities available at the hotel?
+    - Can I cancel my reservation if I need to?
+
+- intent: make_payment
+  examples: |
+    - I want to pay my bill online
+    - Can I use my credit card to make a payment?
+    - How do I make a payment for my account?
+    - I need to transfer money to another account, can you help me?
+    - What's the best way to pay my bill?
+    - I want to set up automatic payments, how do I do that?
+    - Can I get a receipt for my payment?
+    - Are there any fees for making a payment?
+    - Is there a deadline for making a payment?
