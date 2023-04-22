@@ -89,3 +89,85 @@ stories:
       are you a bot?
     intent: bot_challenge
   - action: utter_iamabot
+
+# happy path for student card form
+- story: Test student card form (happy path)
+  steps:
+  - user: |
+      i want a student card. my id is 1
+  - intent: request_student_card
+  - slot_was_set:
+    - requested_slot: student_id
+  - action: student_card
+  - active_loop: null
+  - action: action_order_student_card
+
+# unhappy path for student card form (missing student_id)
+- story: Test student card form (missing student_id)
+  steps:
+  - user: |
+      i want a student card. my id is 30
+  - intent: request_student_card
+  - slot_was_set:
+    - requested_slot: student_id
+  - action: student_card
+  - active_loop: null
+  - action: action_order_student_card
+
+# # happy path for report covid form
+- story: Test report covid form (happy path)
+  steps:
+  - user: |
+      i want to report my covid status. my id is 30. i tested positive using antigen test.
+  - intent: report_covid_status
+  - action: report_covid
+  - active_loop: report_covid
+  - slot_was_set:
+    - requested_slot: student_id
+  - slot_was_set:
+    - requested_slot: covid_test_type
+  - intent: inform
+  - slot_was_set:
+    - covid_test_type: "PCR"
+  - slot_was_set:
+    - requested_slot: covid_test_status
+  - intent: inform
+  - slot_was_set:
+    - covid_test_status: "negative"
+  - active_loop: null
+  - action: action_report_covid
+
+# unhappy path for report covid form (missing student_id)
+- story: Test report covid form (missing student_id)
+  steps:
+  - user: |
+      i want to report my covid status.i tested positive using antigen test.
+  - intent: report_covid_status
+  - action: report_covid
+  - active_loop: report_covid
+  - slot_was_set:
+    - requested_slot: student_id
+  - intent: inform
+  - active_loop: report_covid
+  - slot_was_set:
+    - requested_slot: student_id
+
+# unhappy path for report covid form (missing covid_test_type)
+- story: Test report covid form (missing covid_test_type)
+  steps:
+  - user: |
+      i want to report my covid status. my id is 30. i tested positive.
+  - intent: report_covid_status
+  - action: report_covid
+  - active_loop: report_covid
+  - slot_was_set:
+    - requested_slot: student_id
+  - intent: inform
+  - slot_was_set:
+    - student_id: "123456"
+  - slot_was_set:
+    - requested_slot: covid_test_type
+  - intent: inform
+  - active_loop: report_covid
+  - slot_was_set:
+    - requested_slot: covid_test_type

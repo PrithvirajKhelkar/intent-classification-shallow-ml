@@ -1,0 +1,105 @@
+version: "3.1"
+stories:
+- story: Test report covid form (happy path) (.\tests\test_stories.yml)
+  steps:
+  - user: |-
+      i want to report my covid status. my id is 30. i tested positive using antigen test.
+  - intent: report_covid_status
+  - action: report_covid
+  - active_loop: report_covid
+  - slot_was_set:
+    - requested_slot: student_id
+  - slot_was_set:
+    - requested_slot: covid_test_type
+  - intent: inform
+  - slot_was_set:
+    - covid_test_type: PCR
+  - slot_was_set:
+    - requested_slot: covid_test_status
+  - action: action_listen  # predicted: action_generate_conversation
+  - intent: inform
+  - slot_was_set:
+    - covid_test_status: negative
+  - active_loop: null
+  - action: action_report_covid  # predicted: action_generate_conversation
+- story: Test report covid form (missing student_id) (.\tests\test_stories.yml)
+  steps:
+  - user: |-
+      i want to report my covid status.i tested positive using antigen test.
+  - intent: report_covid_status
+  - action: report_covid
+  - active_loop: report_covid
+  - slot_was_set:
+    - requested_slot: student_id
+  - intent: inform
+  - active_loop: report_covid
+  - slot_was_set:
+    - requested_slot: student_id
+  - action: action_listen  # predicted: action_generate_conversation
+- story: Test report covid form (missing covid_test_type) (.\tests\test_stories.yml)
+  steps:
+  - user: |-
+      i want to report my covid status. my id is 30. i tested positive.
+  - intent: report_covid_status
+  - action: report_covid
+  - active_loop: report_covid
+  - slot_was_set:
+    - requested_slot: student_id
+  - intent: inform
+  - slot_was_set:
+    - student_id: '123456'
+  - slot_was_set:
+    - requested_slot: covid_test_type
+  - action: action_listen  # predicted: action_generate_conversation
+  - intent: inform
+  - active_loop: report_covid
+  - slot_was_set:
+    - requested_slot: covid_test_type
+  - action: action_listen  # predicted: action_generate_conversation
+- story: sad path 1 (.\tests\test_stories.yml)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up  # predicted: action_default_fallback
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+- story: sad path 2 (.\tests\test_stories.yml)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up  # predicted: action_default_fallback
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye  # predicted: action_generate_conversation
+- story: sad path 3 (.\tests\test_stories.yml)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up  # predicted: action_default_fallback
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye  # predicted: action_generate_conversation
+- story: Test student card form (happy path) (.\tests\test_stories.yml)
+  steps:
+  - user: |-
+      i want a student card. my id is 1
+  - intent: request_student_card
+  - slot_was_set:
+    - requested_slot: student_id
+  - action: student_card
+  - active_loop: null
+  - action: action_order_student_card
+- story: Test student card form (missing student_id) (.\tests\test_stories.yml)
+  steps:
+  - user: |-
+      i want a student card. my id is 30
+  - intent: request_student_card
+  - slot_was_set:
+    - requested_slot: student_id
+  - action: student_card
+  - active_loop: null
+  - action: action_order_student_card

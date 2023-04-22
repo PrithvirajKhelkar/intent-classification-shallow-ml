@@ -82,6 +82,8 @@ nlu:
     - extremly sad
     - so saad
     - so sad
+    - i feel sick
+    - i might have covid
 
 - intent: bot_challenge
   examples: |
@@ -139,3 +141,26 @@ nlu:
     - I lost my student ID, can you help me retrieve it?   My name is [Peter](first_name) [Parker](last_name).
     - My student ID is not working, can you check if it's valid?   I am [Peter](first_name) [Parker](last_name).
     - How do I find my student ID in the student portal?
+
+- intent: casual_conversation
+  examples: |
+    - Wow Thanks
+    - Thanks
+    - Thank you
+    - That was amazing
+    - Yes that's what i wanted
+    - Oh god
+    - Is that a bird?
+    - Are you stupid?
+    - Just order my card!
+    - what am I supposed to do then?
+    - please help
+    - but i am a student.
+    - But that is my id.
+    - what's wrong with you
+    - I demand to speak to your manager
+    - This is unacceptable service!
+    - I need this problem fixed immediately.
+    - Your website is not user-friendly
+    - I will never use your services again
+    - This is the worst customer service I have ever experienced

@@ -49,14 +49,6 @@ nlu:
     - not feeling well
     - terrible
 
-- intent: bot_challenge
-  examples: |
-    - are you real?
-    - prove you're not a bot
-    - are you human or machine?
-    - can I trust you?
-    - what's the meaning of life?
-
 - intent: order_food
   examples: |
     - I want to order a pizza with pepperoni

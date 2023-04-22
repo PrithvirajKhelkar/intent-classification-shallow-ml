@@ -70,6 +70,7 @@ intents:
   - request_student_card
   - report_covid_status
   - request_student_id
+  - casual_conversation
 
 responses:
   utter_greet:
@@ -110,6 +111,7 @@ actions:
   - action_order_student_card
   - action_report_covid
   - action_get_student_id
+  - action_generate_conversation
 
 session_config:
   session_expiration_time: 60

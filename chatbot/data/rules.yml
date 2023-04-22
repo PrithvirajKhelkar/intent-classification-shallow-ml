@@ -27,6 +27,8 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: action_order_student_card
+  - intent: casual_conversation
+  - action: action_generate_conversation
 
 - rule: Activate Report Covid form
   steps:
@@ -43,6 +45,8 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: action_report_covid
+  - intent: casual_conversation
+  - action: action_generate_conversation
 
 - rule: Activate Request Student ID form
   steps:
@@ -59,3 +63,5 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: action_get_student_id
+  - intent: casual_conversation
+  - action: action_generate_conversation
